@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Sample Landing Page</title>
+    <title>Home</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width"/>
     <base href="/"/>
@@ -12,7 +12,20 @@
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Sample Landing page for this POC</h1>
+<h2>Sample Landing page for this POC</h2>
 <div class="container"></div>
+<div class="container unauthenticated">
+    With Okta: <a href="/oauth2/authorization/okta">click here</a>
+</div>
+<div class="container authenticated" style="display:none">
+    Logged in as: <span id="user"></span>
+</div>
+<script type="text/javascript">
+    $.get("/user", function(data) {
+        $("#user").html(data.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+</script>
 </body>
 </html>
