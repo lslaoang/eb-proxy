@@ -1,3 +1,16 @@
 spring:
   application:
     name: eb-proxy
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: 0oagp85ak3qxaiGjT5d7
+            client-secret: HF6tv_hkU9F-LgResgPEbEKVGFzpH8sRSmaDZgdXai9HCq8gyp2M4f9Yrb9MYYah
+            scope:
+              - openid
+              - profile
+        provider:
+          okta:
+            issuer-uri: https://dev-10183773.okta.com
